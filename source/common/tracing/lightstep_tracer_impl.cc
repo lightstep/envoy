@@ -136,7 +136,7 @@ LightStepDriver::LightStepDriver(const Json::Object& config,
     tls_options.access_token = options_->access_token;
     tls_options.component_name = options_->component_name;
     tls_options.use_thread = false;
-    tls_options.use_single_key_propagation = true;
+    tls_options.use_single_key_propagation = false;
     tls_options.logger_sink = LightStepLogger{};
     tls_options.max_buffered_spans = std::function<size_t()>{
         [this] { return runtime_.snapshot().getInteger("tracing.lightstep.min_flush_spans", 5U); }};
